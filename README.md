@@ -2,6 +2,28 @@
 
 EventStream / HookRelay is a fault-tolerant distributed webhook and asynchronous task orchestrator with a real-time operations console. It accepts events quickly, delivers them asynchronously, retries transient failures, quarantines exhausted work, and exposes delivery state to operators over Server-Sent Events (SSE).
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-20%2B-339933?logo=node.js&logoColor=white" alt="Node.js 20+" />
+  <img src="https://img.shields.io/badge/Express-4.x-000000?logo=express&logoColor=white" alt="Express" />
+  <img src="https://img.shields.io/badge/Redis-Streams%20%7C%20Lua-DC382D?logo=redis&logoColor=white" alt="Redis" />
+  <img src="https://img.shields.io/badge/MongoDB-Mongoose-47A248?logo=mongodb&logoColor=white" alt="MongoDB and Mongoose" />
+  <img src="https://img.shields.io/badge/React-Vite-61DAFB?logo=react&logoColor=111827" alt="React and Vite" />
+  <img src="https://img.shields.io/badge/Tailwind%20CSS-3.x-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Server--Sent%20Events-SSE-475569" alt="Server-Sent Events" />
+</p>
+
+## Tech stack
+
+| Layer | Technology | Role |
+| --- | --- | --- |
+| API runtime | Node.js, Express | Event intake, replay API, health checks, and SSE transport |
+| Durable state | MongoDB, Mongoose | Events, endpoints, delivery attempts, and DLQ history |
+| Queue and coordination | Redis/ioredis | Streams, delayed jobs, Pub/Sub, idempotency, rate limiting, and circuit state |
+| Atomic traffic shaping | Redis Lua | Token-bucket reservations and delayed-job promotion |
+| Delivery | Native Fetch | Five-second outbound HTTP requests with HMAC-SHA256 signing |
+| Operations console | React, Vite, Tailwind CSS, Lucide Icons | Live metrics, event inspection, retries, DLQ replay, and theme controls |
+| Live updates | Server-Sent Events | Redis Pub/Sub delivery state streamed to the browser |
+
 ## System architecture
 
 ```mermaid
