@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { @apply border-[#e2e6e9]; }
+  body { @apply min-h-screen bg-[#f5f6f8] font-sans text-[#182230] antialiased; }
+  button { @apply outline-none focus-visible:ring-2 focus-visible:ring-[#9ec0d6] focus-visible:ring-offset-2; }
+}
+
+@layer components {
+  .panel { @apply rounded-lg border border-[#e0e5e9] bg-white; }
+  .eyebrow { @apply text-[10px] font-semibold uppercase tracking-[0.12em] text-[#7f8995]; }
+  .mono-value { @apply font-mono tracking-tight tabular-nums; }
+}

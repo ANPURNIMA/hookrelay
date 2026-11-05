@@ -1,0 +1,11 @@
+# Application dependencies and generated bundles
+**/node_modules/
+**/dist/
+
+# Environment configuration
+**/.env
+!**/.env.example
+
+# Runtime and editor files
+*.log
+.DS_Store
